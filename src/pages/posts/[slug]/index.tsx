@@ -18,9 +18,10 @@ const components = {
 
 const PostPage: NextPage<PageProps> = ({ post }) => {
   return (
-    <div>
+    <article className='prose prose-sm md:prose-base lg:prose-lg prose-slate mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8'>
+      <h1 className='mt-16'>{post.title}</h1>
       <MDXRemote {...post.content} components={components} />
-    </div>
+    </article>
   );
 };
 

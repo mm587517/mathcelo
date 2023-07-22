@@ -4,6 +4,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
+import remarkGfm from 'remark-gfm';
 
 export interface Post {
   content: MDXRemoteSerializeResult;
@@ -34,7 +35,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   const mdxSource = await serialize(content, {
     parseFrontmatter: true,
     mdxOptions: {
-      remarkPlugins: [remarkMath],
+      remarkPlugins: [remarkMath, remarkGfm],
       rehypePlugins: [rehypeKatex],
     },
   });
