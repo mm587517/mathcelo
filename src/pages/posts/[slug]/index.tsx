@@ -5,9 +5,10 @@ import {
   NextPage,
 } from 'next/types';
 import { MDXRemote } from 'next-mdx-remote';
-import { Button } from '@/pages/components/Button';
-import { Image } from '@/pages/components/Image';
+
 import { Post, getAllPosts, getPostBySlug } from '../../../../util/posts';
+import Button from '@/pages/components/Button';
+import Image from '@/pages/components/Image';
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 

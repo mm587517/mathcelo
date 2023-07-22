@@ -7,7 +7,7 @@ interface ButtonProps {
   text: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({ text }) => {
+const Button: React.FC<ButtonProps> = ({ text }) => {
   const [toggle, setToggle] = useState(false);
 
   return (
@@ -19,3 +19,5 @@ export const Button: React.FC<ButtonProps> = ({ text }) => {
     </button>
   );
 };
+
+export default Button;
