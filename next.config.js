@@ -3,10 +3,6 @@ const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactStrictMode: true,
   swcMinify: true,
-  experimental: {
-    mdxRs: true,
-    output: 'export',
-  },
 };
 
 const withMDX = require('@next/mdx')();
