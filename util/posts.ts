@@ -12,6 +12,7 @@ export interface Post {
   title: string;
   description: string;
   class: string;
+  author: string;
 }
 
 export async function getAllPosts() {
@@ -46,6 +47,8 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     slug,
     title: meta.title as string,
     author: meta.author as string,
+    description: meta.description as string,
+    class: meta.class as string,
   };
 }
 
