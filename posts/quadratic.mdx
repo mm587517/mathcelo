@@ -1,0 +1,77 @@
+---
+title: Quadratic Formula
+author: Eren Yeager
+description: Welcome to my first blog.
+class: Algebra
+---
+
+Demostración de la Fórmula Cuadrática:
+
+Dada una ecuación cuadrática en la forma: $$ax^2 + bx + c = 0$$
+
+Paso 1: Divide la ecuación por 'a' para simplificarla:
+$$x^2 + \frac{b}{a}x + \frac{c}{a} = 0$$
+
+Paso 2: Mueve el término constante al lado derecho de la ecuación:
+$$x^2 + \frac{b}{a}x = -\frac{c}{a}$$
+
+Paso 3: Agrega $\left(\frac{b}{2a}\right)^2$ a ambos lados para completar el cuadrado en el lado izquierdo:
+$$x^2 + \frac{b}{a}x + \left(\frac{b}{2a}\right)^2 = -\frac{c}{a} + \left(\frac{b}{2a}\right)^2$$
+
+Paso 4: Factoriza el lado izquierdo:
+$$\left(x + \frac{b}{2a}\right)^2 = \frac{b^2 - 4ac}{4a^2}$$
+
+Paso 5: Toma la raíz cuadrada de ambos lados:
+$$x + \frac{b}{2a} = \pm \frac{\sqrt{b^2 - 4ac}}{2a}$$
+
+Paso 6: Finalmente, aisla 'x' restando $\frac{b}{2a}$ en ambos lados:
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+
+Y ahí lo tienes, la fórmula cuadrática:
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+
+
+
+<MultipleChoice allowMultiple={true}>
+### Resolver $$2x^2 + 5x - 3 = 0$$
+        <Option isAnswer={true}>$$x = -3$$</Option>
+        <Option isAnswer={false}>$$x = -\frac{1}{2}$$</Option>
+        <Option isAnswer={true}>$$x = \frac{1}{2}$$</Option>
+        <Option isAnswer={false}>$$x = 3$$</Option>
+</MultipleChoice>
+<ObscureSection>
+Ejemplo de uso de la Fórmula Cuadrática:
+
+Dada la ecuación cuadrática: $$2x^2 + 5x - 3 = 0$$
+
+Para resolver esta ecuación utilizando la fórmula cuadrática, identificamos los valores de 'a', 'b' y 'c':
+
+$a = 2$
+$b = 5$
+$c = -3$
+
+Ahora podemos aplicar la fórmula cuadrática:
+
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+
+Sustituyendo los valores de 'a', 'b' y 'c' en la fórmula:
+
+$$x = \frac{-5 \pm \sqrt{5^2 - 4 \cdot 2 \cdot (-3)}}{2 \cdot 2}$$
+
+Calculamos el discriminante: 
+
+$$\Delta = b^2 - 4ac = 5^2 - 4 \cdot 2 \cdot (-3) = 49$$
+
+Como $\Delta$ es positivo, hay dos soluciones reales para 'x':
+
+$$x = \frac{-5 + \sqrt{49}}{4} = \frac{-5 + 7}{4} = \frac{2}{4} = \frac{1}{2}$$
+
+$$x = \frac{-5 - \sqrt{49}}{4} = \frac{-5 - 7}{4} = \frac{-12}{4} = -3$$
+
+Por lo tanto, las soluciones para la ecuación cuadrática son:
+
+$$x = \frac{1}{2}$$
+
+$$x = -3$$
+
+</ObscureSection>

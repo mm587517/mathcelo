@@ -9,12 +9,18 @@ import { MDXRemote } from 'next-mdx-remote';
 import { Post, getAllPosts, getPostBySlug } from '../../../../util/posts';
 import Button from '@/pages/components/Button';
 import Image from '@/pages/components/Image';
+import MultipleChoice from '@/pages/components/MultipleChoice';
+import Option from '@/pages/components/Option';
+import ObscureSection from '@/pages/components/ObscureSection';
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const components = {
   Button: Button as any,
   Image: Image as any,
+  MultipleChoice: MultipleChoice as any,
+  Option: Option as any,
+  ObscureSection: ObscureSection as any,
 };
 
 const PostPage: NextPage<PageProps> = ({ post }) => {

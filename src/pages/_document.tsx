@@ -5,10 +5,13 @@ export default function Document() {
   return (
     <Html lang='en'>
       <Head />
+
       <body>
         <Header />
-        <Main />
-        <NextScript />
+        <div className='my-8 mx-4 md:my-12 md:mx-8'>
+          <NextScript />
+          <Main />
+        </div>
       </body>
     </Html>
   );
