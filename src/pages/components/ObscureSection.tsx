@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
-const ObscureSection: React.FC = ({ children }) => {
+interface ObscureSectionProps {
+  children: React.ReactNode;
+}
+
+const ObscureSection: React.FC<ObscureSectionProps> = ({ children }) => {
   const [showAnswer, setShowAnswer] = useState(false);
 
   const toggleAnswer = () => {
