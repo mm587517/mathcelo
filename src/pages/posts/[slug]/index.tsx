@@ -12,6 +12,7 @@ import Image from '@/pages/components/Image';
 import MultipleChoice from '@/pages/components/MultipleChoice';
 import Option from '@/pages/components/Option';
 import ObscureSection from '@/pages/components/ObscureSection';
+import GeoGebraAPI from '@/pages/components/GeoGebraAPI';
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -21,6 +22,7 @@ const components = {
   MultipleChoice: MultipleChoice as any,
   Option: Option as any,
   ObscureSection: ObscureSection as any,
+  GeoGebraAPI: GeoGebraAPI as any,
 };
 
 const PostPage: NextPage<PageProps> = ({ post }) => {
