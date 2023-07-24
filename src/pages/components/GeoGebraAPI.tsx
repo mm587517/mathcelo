@@ -19,7 +19,7 @@ interface GGBAppletParameters {
 }
 
 interface GeoGebraAPIProps {
-  functionsToGraph: string[]; // Array of math functions to be graphed
+  functionsToGraph: string[];
 }
 
 declare global {
@@ -64,7 +64,6 @@ const GeoGebraAPI: React.FC<GeoGebraAPIProps> = ({ functionsToGraph }) => {
 
       const checkAppletLoaded = setInterval(() => {
         if (window.ggbApplet) {
-          // Graph the functions passed as props
           functionsToGraph.forEach((func) => {
             window.ggbApplet.evalCommand(func);
           });
@@ -82,6 +81,16 @@ const GeoGebraAPI: React.FC<GeoGebraAPIProps> = ({ functionsToGraph }) => {
   return (
     <div className='contentBox'>
       <div id='applet_container' ref={appletContainerRef}></div>
+      <div style={{ fontSize: '12px', color: '#666', marginTop: '10px' }}>
+        Powered by{' '}
+        <a
+          href='https://www.geogebra.org'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          GeoGebra
+        </a>
+      </div>
     </div>
   );
 };
