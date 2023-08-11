@@ -34,12 +34,14 @@ const MultipleChoice: React.FC<QuestionProps> = ({
   return (
     <div className='p-4'>
       {childrenArray[0]}
-      {childrenArray.slice(1).map((child: any, index) => {
-        return React.cloneElement(child as React.ReactElement<OptionProps>, {
-          selected: selectedOptions.includes(index),
-          onSelect: () => handleSelect(index, child.props.isAnswer),
-        });
-      })}
+      <div className='ml-6'>
+        {childrenArray.slice(1).map((child: any, index) => {
+          return React.cloneElement(child as React.ReactElement<OptionProps>, {
+            selected: selectedOptions.includes(index),
+            onSelect: () => handleSelect(index, child.props.isAnswer),
+          });
+        })}
+      </div>
     </div>
   );
 };
