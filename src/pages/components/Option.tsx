@@ -1,5 +1,4 @@
-// Option.tsx
-import React, { useState, useEffect, ReactNode } from 'react';
+import React, { ReactNode, FC } from 'react';
 
 export interface OptionProps {
   isAnswer: boolean;
@@ -8,51 +7,34 @@ export interface OptionProps {
   children: ReactNode;
 }
 
-const Option: React.FC<OptionProps> = ({
-  isAnswer,
-  selected,
-  onSelect,
-  children,
-}) => {
-  const [wasSelectedCorrectly, setWasSelectedCorrectly] = useState(false);
+const Option: FC<OptionProps> = ({ isAnswer, selected, onSelect, children }) => {
+  const bubbleColor = selected
+    ? isAnswer ? 'bg-emerald-400' : 'bg-rose-400'
+    : 'bg-gray-200';
 
-  useEffect(() => {
-    if (selected && isAnswer) {
-      setWasSelectedCorrectly(true);
-    } else if (!selected) {
-      setWasSelectedCorrectly(false);
-    }
-  }, [selected, isAnswer]);
-
-  useEffect(() => {
-    if (selected && !isAnswer) {
-      const timer = setTimeout(onSelect, 2000); // Unselect after 2 seconds
-      return () => clearTimeout(timer);
-    }
-  }, [selected, isAnswer, onSelect]);
-
-  const getBorderStyle = () => {
-    if (wasSelectedCorrectly) {
-      return 'border-green-500';
-    } else if (selected) {
-      if (isAnswer) {
-        return 'border-green-500';
-      } else {
-        return 'border-red-500';
-      }
-    } else {
-      return 'border-gray-300';
-    }
-  };
+  // Hover effect changes the background to a light blue
+  const hoverEffect = 'hover:bg-blue-200';
 
   return (
-    <p
-      className={`w-1/2 cursor-pointer border-2 p-2 rounded-md transition-all hover:scale-105 hover:bg-gray-100 ${getBorderStyle()}`}
-      onClick={onSelect}
-    >
-      {children}
-    </p>
+    <div className="flex items-center space-x-2">
+      <div
+        className={`
+          h-6 w-6
+          rounded-full
+          cursor-pointer
+          transition duration-300 ease-in-out
+          mr-2
+          mt-2 mb-2
+          ${bubbleColor}
+          ${hoverEffect}
+        `}
+        onClick={onSelect}
+        aria-selected={selected}
+      />
+      <span className="select-none text-gray-700">{children}</span>
+    </div>
   );
 };
 
 export default Option;
+

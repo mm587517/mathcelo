@@ -1,44 +1,32 @@
-// MultipleChoice.tsx
-import React, { useState } from 'react';
-import Option, { OptionProps } from './Option';
+import React, { ReactElement, useState } from 'react';
+import { OptionProps } from './Option';
 
 interface QuestionProps {
-  allowMultiple?: boolean;
   children: React.ReactElement<OptionProps>[] | React.ReactElement<OptionProps>;
 }
 
 const MultipleChoice: React.FC<QuestionProps> = ({
-  allowMultiple = false,
   children,
 }) => {
-  const [selectedOptions, setSelectedOptions] = useState<number[]>([]);
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
 
-  const handleSelect = (index: number, isAnswer: boolean) => {
-    if (selectedOptions.includes(index)) {
-      if (allowMultiple || !isAnswer) {
-        setSelectedOptions(
-          selectedOptions.filter((option) => option !== index)
-        );
-      }
-    } else {
-      if (allowMultiple) {
-        setSelectedOptions([...selectedOptions, index]);
-      } else {
-        setSelectedOptions([index]);
-      }
-    }
+  const handleSelect = (index: number) => {
+    setSelectedOption(index);
   };
 
-  const childrenArray = React.Children.toArray(children);
+  const [question, ...options] = React.Children.toArray(children);
 
   return (
-    <div className='p-4'>
-      {childrenArray[0]}
-      <div className='ml-6'>
-        {childrenArray.slice(1).map((child: any, index) => {
-          return React.cloneElement(child as React.ReactElement<OptionProps>, {
-            selected: selectedOptions.includes(index),
-            onSelect: () => handleSelect(index, child.props.isAnswer),
+    <div className='mb-4'>
+      <div className='w-full -mb-4 overflow-x-auto'>
+        {question}
+      </div>
+      <div className='ml-8'>
+        {options.map((option, index) => {
+          return React.cloneElement(option as ReactElement<OptionProps>, {
+            selected: selectedOption === index,
+            onSelect: () => handleSelect(index),
+            key: index,
           });
         })}
       </div>

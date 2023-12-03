@@ -40,7 +40,7 @@ const GeoGebraAPI: React.FC<GeoGebraAPIProps> = ({ functionsToGraph }) => {
     borderColor: null,
     showMenuBar: false,
     showAlgebraInput: false,
-    showResetIcon: true,
+    showResetIcon: false,
     enableLabelDrags: false,
     enableShiftDragZoom: true,
     enableRightClick: false,
@@ -48,6 +48,7 @@ const GeoGebraAPI: React.FC<GeoGebraAPIProps> = ({ functionsToGraph }) => {
     showToolBarHelp: false,
     errorDialogsActive: true,
     useBrowserForJS: false,
+
   };
 
   useEffect(() => {
